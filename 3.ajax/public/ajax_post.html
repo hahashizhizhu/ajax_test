@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn">ajax_post请求</button>
+
+<script type="text/javascript">
+
+    let btn = document.getElementById('btn');
+    //绑定事件
+    btn.onclick = ()=>{
+
+        let xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = ()=>{
+
+
+  //完美返回
+            if(xhr.readyState ===  4 && xhr.status ===  200){
+
+                console.log(xhr.response);
+            }
+
+
+            //状态值0
+            // if(xhr.readyState === 0){
+            //
+            //     console.log(xhr.response);
+            // }
+
+            //  1
+            // if(xhr.readyState === 1){
+            //
+            //     console.log(xhr.response);
+            // }
+
+            // 2
+            // if(xhr.readyState === 2){
+            //
+            //     console.log(xhr.response);
+            // }
+
+            //  3
+            // if(xhr.readyState === 3){
+            //
+            //     console.log(xhr.response);
+            // }
+        };
+
+        xhr.open('post','http://localhost:8847/test_post');
+
+        //有一个特定的请求头
+        xhr.setRequestHeader('content-type','application/x-www-form-urlencoded');
+
+        //发送请求  带参数
+        xhr.send('name=魏无羡&age=118');
+
+    }
+</script>
+</body>
+</html>
